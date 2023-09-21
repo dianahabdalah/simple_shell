@@ -8,7 +8,7 @@
  */
 int check_shell_mode(info_t *shell_info)
 {
-	return (isatty(STDIN_FILENO) && shell_info->read_descriptor <= 2);
+	return (isatt(STDIN_FILENO) && shell_info->read_descriptor <= 2);
 }
 
 /**
