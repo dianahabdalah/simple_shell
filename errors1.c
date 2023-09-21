@@ -106,7 +106,7 @@ char *convert_to_string(long int num, int base, int flags)
 		n = -num;
 		sign = '-';
 	}
-	char_array = flag CONVERT_LOWERCASE "0123456789abcdef" : "0123456789ABCDEF";
+	char_array = flags CONVERT_LOWERCASE "0123456789abcdef"; : "0123456789ABCDEF";
 	ptr = &buffer[49];
 	*ptr = '\0';
 
