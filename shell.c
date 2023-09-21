@@ -3,11 +3,11 @@
 /**
  * main - Entry point of the program
  *
- * Return: Always 0 (Success)
+ * Return: 0 on success
  */
 int main(void)
 {
-    printf("Hello, Betty!\n");
+    printf("Hello, world!\n");
     return (0);
 }
 
