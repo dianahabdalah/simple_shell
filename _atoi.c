@@ -1,76 +1,74 @@
 #include "shell.h"
 
 /**
- * check_shell_mode - Check if the shell is running in interactive mode.
- * @shell_info: A pointer to a struct containing shell information.
+ * interactive - Displays true if shell is in interactive mode
+ * @info: a Struct address
  *
- * Return: 1 if the shell is in interactive mode, 0 otherwise.
+ * Return: 1 is returned if in interactive mode, and 0 otherwise
  */
-int check_shell_mode(info_t *shell_info)
+int interactive(info_t *info)
 {
-	return (isatt(STDIN_FILENO) && shell_info->read_descriptor <= 2);
+	return (isatty(STDIN_FILENO) && info->readfd <= 2);
 }
 
 /**
- * is_separator_char - Check if a character is a separator.
- * @character: The character to check.
- * @separator_set: The set of separator characters.
- *
- * Return: 1 if the character is a separator, 0 if not.
+ * is_delim - Checks if a character is delimeter
+ * @c: The char to be checked
+ * @delim: Delimeter string
+ * Return: 1 if it is  true, and 0 if false
  */
-int is_separator_char(char character, char *separator_set)
+int is_delim(char c, char *delim)
 {
-	while (*separator_set)
-		if (*separator_set++ == character)
+	while (*delim)
+		if (*delim++ == c)
 			return (1);
 	return (0);
 }
 
 /**
- * is_alphabetic_char - Determine if a character is alphabetic.
- * @ch: The character to check.
- *
- * Return: 1 if the character is alphabetic, 0 otherwise.
+ *_isalpha - it Checks for an alphabetic character
+ *@c: the Character to be input
+ *Return: returns 1 if c is a alphabetic, and 0 otherwise
  */
-int is_alphabetic_char(int ch)
+
+int _isalpha(int c)
 {
-	if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z'))
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
 		return (1);
 	else
 		return (0);
 }
 
 /**
- * custom_string_to_int - Convert a string to an integer.
- * @str: The string to be converted.
- *
- * Return: 0 if no numbers in the string, Converted number otherwise.
+ *_atoi - changes a string to an integer
+ *@s: String to be changed
+ *Return: returns 0 if no numbers in string, changes number otherwise
  */
-int custom_string_to_int(char *str)
-{
-	int i, sign = 1, flag = 0, result;
-	unsigned int integer_result = 0;
 
-	for (i = 0; str[i] != '\0' && flag != 2; i++)
+int _atoi(char *s)
+{
+	int i, sign = 1, flag = 0, output;
+	unsigned int result = 0;
+
+	for (i = 0;  s[i] != '\0' && flag != 2; i++)
 	{
-		if (str[i] == '-')
+		if (s[i] == '-')
 			sign *= -1;
 
-		if (str[i] >= '0' && str[i] <= '9')
+		if (s[i] >= '0' && s[i] <= '9')
 		{
 			flag = 1;
-			integer_result *= 10;
-			integer_result += (str[i] - '0');
+			result *= 10;
+			result += (s[i] - '0');
 		}
 		else if (flag == 1)
 			flag = 2;
 	}
 
 	if (sign == -1)
-		result = -integer_result;
+		output = -result;
 	else
-		result = integer_result;
+		output = result;
 
-	return (result);
+	return (output);
 }
-

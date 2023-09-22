@@ -1,9 +1,9 @@
 #include "shell.h"
 
 /**
- * _myenv - It prints a  current environ
- * @info: Contains potential arguments. For maintaining
- *          constant prototype function.
+ * _myenv - Prints current environment
+ * @info: structure having potential arguments. used to maintain a
+ *          constant function prototype.
  * Return: always returns 0
  */
 int _myenv(info_t *info)
@@ -13,11 +13,11 @@ int _myenv(info_t *info)
 }
 
 /**
- * _getenv - fetches the value of the environment variable
- * @info: Contains potential arguments. For maintaining
- * @name: environment variable  name
+ * _getenv - fetches the value of an environ variable
+ * @info: structure having potential arguments. used to maintain a
+ * @name: an env var name
  *
- * Return: Returns the value
+ * Return: returns a value
  */
 char *_getenv(info_t *info, const char *name)
 {
@@ -35,11 +35,11 @@ char *_getenv(info_t *info, const char *name)
 }
 
 /**
- * _mysetenv - Initializes a new environ var,
- *             or it can change  an existing one
- * @info: Contains  potential arguments. For  maintaining
+ * _mysetenv - it initialize new environment variable,
+ *             or modify existing one
+ * @info: structure having potential arguments. used to maintain a
  *        constant prototype function.
- *  Return: always reutrns 0
+ *  Return: always returns 0
  */
 int _mysetenv(info_t *info)
 {
@@ -54,10 +54,10 @@ int _mysetenv(info_t *info)
 }
 
 /**
- * _myunsetenv - deletes an environ  var
- * @info: Contains potential arguments.For maintaining
+ * _myunsetenv - used to remove environment variable
+ * @info: structure having potential arguments. used to maintain a
  *        constant prototype function.
- * Return: always returns 0
+ *  Return: always returns0
  */
 int _myunsetenv(info_t *info)
 {
@@ -75,8 +75,8 @@ int _myunsetenv(info_t *info)
 }
 
 /**
- * populate_env_list - populates environment list which are linked
- * @info: Contains potential arguments. Used to maintain
+ * populate_env_list - It Populates env linked list
+ * @info: Structure having potential arguments. used to maintain a
  *          constant prototype function.
  * Return: always returns 0
  */
@@ -90,4 +90,3 @@ int populate_env_list(info_t *info)
 	info->env = node;
 	return (0);
 }
-

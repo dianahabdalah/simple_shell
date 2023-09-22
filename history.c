@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
- * get_history_file - Gets the hist file
- * @info: a parameter struct.
+ * get_history_file - it fetches the history file
+ * @info: The Parameter struct
  *
- * Return: Allocated string containg a hist file
+ * Return: a Allocated string containg a history file
  */
 
 char *get_history_file(info_t *info)
@@ -25,10 +25,10 @@ char *get_history_file(info_t *info)
 }
 
 /**
- * write_history - Creates file, or appends to existing file
- * @info: A Parameter's  struct
+ * write_history - It Creates a file, or appends to existing file
+ * @info: Parameter struct
  *
- * Return: 1 On a success, and if  else -1
+ * Return: returns 1 on a success, else -1 is returned
  */
 int write_history(info_t *info)
 {
@@ -54,12 +54,12 @@ int write_history(info_t *info)
 }
 
 /**
- * read_hist - read hist from file
- * @info: a parameter structure
+ * read_history - It Reads a history from file
+ * @info: Parameter struct
  *
- * Return: Histcount on a success, and 0 otherwise
+ * Return: returns Histcount on success, and 0 otherwise
  */
-int read_hist(info_t *info)
+int read_history(info_t *info)
 {
 	int i, last = 0, linecount = 0;
 	ssize_t fd, rdlen, fsize = 0;
@@ -103,14 +103,14 @@ int read_hist(info_t *info)
 }
 
 /**
- * build_hist_list - Adds entry to hist linked lists
- * @info: Struct containing potential arguments. Used for maintaining
- * @buf: buffers.
- * @linecount: the hist linecounts, Histcounts
+ * build_history_list - It Adds entry to history linked list
+ * @info: structure having potential arguments. used to maintain
+ * @buf: The Buffer
+ * @linecount: a History linecount, histcount
  *
- * Return: Always returns 0
+ * Return: always returns0
  */
-int build_hist_list(info_t *info, char *buf, int linecount)
+int build_history_list(info_t *info, char *buf, int linecount)
 {
 	list_t *node = NULL;
 
@@ -124,12 +124,12 @@ int build_hist_list(info_t *info, char *buf, int linecount)
 }
 
 /**
- * renumber_hist- Renumbers the hist linked list after change
- * @info: Struct  containing potential argument. Used for maintaining
+ * renumber_history - it Renumbers the history linked list after it changes
+ * @info: structure having potential arguments. used to maintain
  *
- * Return: the new histcount
+ * Return: New histcount
  */
-int renumber_hist(info_t *info)
+int renumber_history(info_t *info)
 {
 	list_t *node = info->history;
 	int i = 0;
@@ -141,4 +141,3 @@ int renumber_hist(info_t *info)
 	}
 	return (info->histcount = i);
 }
-

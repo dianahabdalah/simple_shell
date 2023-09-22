@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
- * _myhistory - used to displays history list, One command by a line, Preceded
- *              with line nos., begining with 0.
- * @info: Contains potential arguments. for maintaining
- *        constant prototype function.
+ * _myhistory - shows history list, one command by line, preceded
+ *              with line numbers, starting from 0.
+ * @info: structure having potential arguments. used to maintain a
+ *        constant prototype function .
  *  Return: always returns 0
  */
 int _myhistory(info_t *info)
@@ -14,11 +14,11 @@ int _myhistory(info_t *info)
 }
 
 /**
- * unset_alias - responsible for seting alias to a string
- * @info: a Parameter struct
- * @str: String alias
+ * unset_alias - It sets alias to string
+ * @info: the parameter struct
+ * @str: A String alias
  *
- * Return: always returns 0 on success, and 1 on error
+ * Return: always returns 0 on a success, and 1 on a error
  */
 int unset_alias(info_t *info, char *str)
 {
@@ -37,11 +37,11 @@ int unset_alias(info_t *info, char *str)
 }
 
 /**
- * set_alias - responsible for seting alias to string
- * @info: a Parameter struct
- * @str: String alias
+ * set_alias - It sets the alias to a string
+ * @info: the Parameter struct
+ * @str: A String alias
  *
- * Return: always returns 0 on success, and 1 on error
+ * Return: always returns 0 on a success, 1 on error
  */
 int set_alias(info_t *info, char *str)
 {
@@ -58,10 +58,10 @@ int set_alias(info_t *info, char *str)
 }
 
 /**
- * print_alias - Prints the alias string
- * @node: node of the alias
+ * print_alias - Prints a Alias string
+ * @node: a Alias node
  *
- * Return: always returns 0 on success, and 1 on error
+ * Return: always return 0 on a success, and 1 on a error
  */
 int print_alias(list_t *node)
 {
@@ -71,7 +71,7 @@ int print_alias(list_t *node)
 	{
 		p = _strchr(node->str, '=');
 		for (a = node->str; a <= p; a++)
-		_putchar(*a);
+			_putchar(*a);
 		_putchar('\'');
 		_puts(p + 1);
 		_puts("'\n");
@@ -81,8 +81,8 @@ int print_alias(list_t *node)
 }
 
 /**
- * _myalias - Mimics a builtin alias (the man alias)
- * @info: Contains potential arguments. for maintaining
+ * _myalias - it Mimics the alias builtin (man alias)
+ * @info: structure having potential arguments. used to maintain a
  *          constant prototype function.
  *  Return: always returns 0
  */
@@ -113,4 +113,3 @@ int _myalias(info_t *info)
 
 	return (0);
 }
-
